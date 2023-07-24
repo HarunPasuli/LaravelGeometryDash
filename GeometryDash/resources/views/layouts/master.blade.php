@@ -17,9 +17,7 @@
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap" />
-                </svg>
+                <img src="{{ asset('asset/images/logo.png') }}" alt="" class="class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"">
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -101,21 +99,9 @@
             <!--Grid column-->
             <div class="col-auto">
               <!-- Submit button -->
-              <form class="newsletter-form mt-4" action="{{ route('newsletter.subscribe') }}" method="POST">
-                @csrf
-                <div class="input-group">
-                    <input type="text" name="email" class="input-group-field outline-none"
-                        placeholder="Your email address" />
-                    <button class="input-group-btn" type="submit">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </div>
-                @if (session('success'))
-                    <div class="alert alert-success px-5 w-100">
-                        {{ session('success') }}
-                    </div>
-                @endif
-            </form>
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
             </div>
             <!--Grid column-->
           </div>
