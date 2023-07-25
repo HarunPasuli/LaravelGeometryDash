@@ -43,16 +43,16 @@ class PostsController extends Controller
         return redirect()->route('pages.index');
     }
 
-    // public function show($id)
-    // {
-    //     // Retrieve the data from the database based on the ID
-    //     $posts = Posts::findOrFail($id);
+    public function show($id)
+    {
+        // Retrieve the data from the database based on the ID
+        $posts = Posts::findOrFail($id);
 
-    //     // Extract the data
-    //     $title = $posts->title;
-    //     $description = $posts->description;
-    //     $profileName = $posts->profileName;
-    //     $posts->increment('views');
-    //     return view('pages.post-page', ['post' => $posts]);
-    // }
+        // Extract the data
+        $title = $posts->title;
+        $description = $posts->description;
+        $profileName = $posts->profileName;
+        $posts->increment('views');
+        return view('post-pages.posts.posts', ['post' => $posts]);
+    }
 }

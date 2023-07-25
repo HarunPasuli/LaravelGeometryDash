@@ -1,0 +1,47 @@
+/* public/css/post.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.post-description {
+    margin-bottom: 20px;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #666;
+}
+
+.post-meta p {
+    margin: 5px 0;
+}
+
+.post-meta .post-sources a {
+    margin-right: 5px;
+}

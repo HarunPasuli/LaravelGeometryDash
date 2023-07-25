@@ -25,6 +25,7 @@ class News extends Model
     ];
 
     protected $casts = [
+        'uploaded_at' => 'datetime',
         'sources' => 'array',
     ];
 }
