@@ -20,6 +20,8 @@ class NewsController extends Controller
             'author' => 'required|string',
             'description' => 'required|string',
             'sources' => 'array',
+            'sources.*.url' => 'url',
+            'sources.*.platform' => 'string',
         ]);
 
         $uploadedAt = Carbon::now();

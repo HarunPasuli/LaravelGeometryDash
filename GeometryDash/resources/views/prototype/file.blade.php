@@ -24,8 +24,13 @@
         <p style="font-size: 18px; color: rgb(121,120,120);">{{ str_limit($post->description, $words = 50, $end = '...') }}</p>
         <b style="font-size: 18px; color: rgb(91,90,90);">Sources:</b>
         @foreach ($post->sources as $source)
-            <a href="#">{{ $source }}</a>
+        {{-- {{ dd($post->sources) }} --}}
+        <a href="{{ $source['url'] }}">{{ $source['platform'] }}</a>
         @endforeach
+
+
+
+
         <br>
         <b style="font-size: 15px; color: rgb(131,130,130)">{{ $post->views }} views</b>
     </div>

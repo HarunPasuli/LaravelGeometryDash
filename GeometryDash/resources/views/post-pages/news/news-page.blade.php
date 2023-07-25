@@ -16,7 +16,7 @@
             <p class="post-author">Author: {{ $post->author }}</p>
             <p class="post-sources">Sources:
                 @foreach ($post->sources as $source)
-                    <a href="{{ $source }}" target="_blank">{{ $source }}</a>,
+                <a href="{{ $source['url'] }}">{{ $source['platform'] }}</a>
                 @endforeach
             </p>
             <p class="post-views">Views: {{ $post->views }}</p>
