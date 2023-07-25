@@ -41,3 +41,16 @@
   .btn-primary:hover {
     background-color: #0056b3;
   }
+
+#add-more-btn {
+    margin-top: 10px;
+}
+
+/* Optional: Style the input fields */
+.form-control {
+    margin-bottom: 10px;
+}
+
+.sources {
+    margin-top: 1rem;
+}

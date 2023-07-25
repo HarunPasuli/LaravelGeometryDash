@@ -23,4 +23,8 @@ class News extends Model
     protected $dates = [
         'uploaded_at',
     ];
+
+    protected $casts = [
+        'sources' => 'array',
+    ];
 }

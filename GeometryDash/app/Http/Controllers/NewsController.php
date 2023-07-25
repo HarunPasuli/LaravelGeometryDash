@@ -10,17 +10,16 @@ use Illuminate\Support\Str;
 class NewsController extends Controller
 {
     public function create() {
-        return view('news.create');
+        return view('uploads.news.create');
     }
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'uploaded_at' => 'required',
             'author' => 'required|string',
             'description' => 'required|string',
-            'sources' => 'string',
+            'sources' => 'array',
         ]);
 
         $uploadedAt = Carbon::now();

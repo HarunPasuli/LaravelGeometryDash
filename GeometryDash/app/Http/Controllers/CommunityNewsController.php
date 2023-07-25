@@ -18,10 +18,9 @@ class CommunityNewsController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'uploaded_at' => 'required',
             'author' => 'required|string',
             'description' => 'required|string',
-            'sources' => 'string',
+            'sources' => 'array',
         ]);
 
         $uploadedAt = Carbon::now();
