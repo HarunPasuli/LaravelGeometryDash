@@ -75,4 +75,4 @@ Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/community/news/{id}', [CommunityNewsController::class, 'show'])->name('community.show');
 
 //
-Route::get('/prototype', [PrototypeController::class, 'show'])->name('prototype.show');
+Route::get('/prototype', [PrototypeController::class, 'index'])->name('prototype.show');
