@@ -22,7 +22,7 @@ use App\Http\Controllers\ShowAll;
 
 Route::get('/', function () {
     return view('pages.index');
-});
+})->name('pages.index');
 
 // Newsletter
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');

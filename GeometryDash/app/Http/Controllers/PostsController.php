@@ -6,6 +6,7 @@ use App\Models\Posts;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -19,7 +20,6 @@ class PostsController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'uploaded_at' => 'required',
             'author' => 'required|string',
             'description' => 'required|string',
         ]);
