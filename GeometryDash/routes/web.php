@@ -8,6 +8,8 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CommunityNewsController;
 use App\Http\Controllers\ShowAll;
+use App\Http\Controllers\PrototypeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +73,6 @@ Route::post('/community/news', [CommunityNewsController::class, 'store'])->name(
 Route::get('/post/{id}', [PostsController::class, 'show'])->name('post.show');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/community/news/{id}', [CommunityNewsController::class, 'show'])->name('community.show');
+
+//
+Route::get('/prototype', [PrototypeController::class, 'show'])->name('prototype.show');
