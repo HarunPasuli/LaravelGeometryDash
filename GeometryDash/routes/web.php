@@ -49,17 +49,6 @@ Route::post('/send-newsletter', [NewsletterController::class, 'sendNewsletter'])
 Route::get('/poll', [PollController::class,'index'])->name('poll.index');
 Route::get('/{poll}', [PollController::class,'show'])->name('poll.show');
 Route::post('/{poll}/vote', [PollController::class,'vote'])->name('poll.vote');
-Route::prefix('poll')->middleware('auth')->group(function() {
-    Route::view('create', 'polls.create')->name('poll.create');
-    Route::post('create', [PollController::class, 'store'])->name('poll.store');
-    Route::get('/', [PollController::class,'index'])->name('poll.index');
-    Route::get('/update/{poll}', [PollController::class,'edit'])->name('poll.edit');
-    Route::put('/update/{poll}', [PollController::class,'update'])->name('poll.update');
-    Route::get('delete/{poll}',[PollController::class,'delete'])->name('poll.delete');
-
-    Route::get('/{poll}', [PollController::class,'show'])->name('poll.show');
-    Route::post('/{poll}/vote', [PollController::class,'vote'])->name('poll.vote');
-});
 
 // Upload Posts
 Route::post('/posts', [PostsController::class, 'store'])->name('post.store');
