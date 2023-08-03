@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('levels', function (Blueprint $table) {
             $table->id('lid');
             $table->string('level');
-            $table->string('alt1');
-            $table->string('alt2');
+            $table->string('alt1')->nullable();
+            $table->string('alt2')->nullable();
             $table->integer('difficulty');
             $table->string('filename');
             $table->string('file');
