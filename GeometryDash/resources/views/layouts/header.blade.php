@@ -16,8 +16,8 @@ style="width: 95%; border-color: black; margin-left:2.5%;margin-top: 30px; borde
     </ul>
 
     <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='/login'">Login</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/register'">Sign-up</button>
     </div>
 </header>
 </div>

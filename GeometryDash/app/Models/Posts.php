@@ -22,4 +22,9 @@ class Posts extends Model
     protected $dates = [
         'uploaded_at',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id');
+    }
 }

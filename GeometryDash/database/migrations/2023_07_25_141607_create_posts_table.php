@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('uploaded_at')->default(DB::raw('CURRENT_DATE'));
             $table->string('author');
             $table->integer('views')->default(0);
-            $table->integer('comments')->default(0);
             $table->timestamps();
         });
     }

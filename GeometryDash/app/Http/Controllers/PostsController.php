@@ -53,6 +53,6 @@ class PostsController extends Controller
         $description = $posts->description;
         $profileName = $posts->profileName;
         $posts->increment('views');
-        return view('post-pages.posts.posts', ['post' => $posts]);
+        return view('post-pages.posts.post', ['post' => $posts]);
     }
 }

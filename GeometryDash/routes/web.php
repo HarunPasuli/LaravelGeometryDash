@@ -10,7 +10,7 @@ use App\Http\Controllers\CommunityNewsController;
 use App\Http\Controllers\ShowAll;
 use App\Http\Controllers\PrototypeController;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +31,9 @@ Route::get('/', function () {
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -66,6 +66,10 @@ Route::get('/community/news/{id}', [CommunityNewsController::class, 'show'])->na
 
 //
 Route::get('/prototype', [PrototypeController::class, 'index'])->name('prototype.index');
+
+// Comments
+Route::post('/comments', [CommentController::class, 'storeComment'])->name('comments.store');
+Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies.store');
 
 Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
