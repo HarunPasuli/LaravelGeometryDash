@@ -12,6 +12,7 @@ class LevelGuesserController extends Controller
         return view('uploads.level-guesser.create');
     }
 
+
     public function store(Request $request) {
         // dd($request->all());
         $validatedData = $request->validate([

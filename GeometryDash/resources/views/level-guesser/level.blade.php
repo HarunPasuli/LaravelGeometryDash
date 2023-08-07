@@ -23,7 +23,7 @@
                             id="countdowntimer" style="color: red">15 </span> </h4>
                     <h3 style="text-align: center;"> What is this level called? </h3>
                     <div style="width: 100%;">
-                        <form onsubmit="return false">
+                        <form id="answerForm" onsubmit="return false">
                             <div style="margin-left: auto; margin-right: auto; display: block; width: 40%;">
                                 <input type="text" name="bigman" id="fileToUpload"
                                     style="height: 25px; padding-bottom: 0px; width: 100%">
@@ -44,7 +44,7 @@
                 </div>
                 <div style="text-align: center; font-size: 23px;">
                     <p style="display: inline;" id="levelwas">
-                    <p style="display: inline; color: rgb(255,100,100)" id="levelwasPHP"> @{{ levelWasContent }} </p>
+                    <p style="display: none; color: rgb(255,100,100)" id="levelwasPHP"> @{{ levelWasContent }} </p>
                     </p>
                     <p style="display: inline; color: green;" id="levelcorrect"></p>
                     <button id="myButton"
@@ -73,6 +73,7 @@
             if (timeleft <= 0) {
                 clearInterval(downloadTimer);
                 document.getElementById("levelwas").textContent = "The Level Was: ";
+                document.getElementById("levelwasPHP").style.display = "inline";
                 document.getElementById("levelwasPHP").textContent =
                     "{{ $levelWasContent }}";
                 // Get all buttons with the class "disabled"
