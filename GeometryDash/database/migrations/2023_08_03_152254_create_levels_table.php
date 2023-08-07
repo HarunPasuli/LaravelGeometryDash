@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('alt2')->nullable();
             $table->integer('difficulty');
             $table->string('filename');
-            $table->string('file');
             $table->timestamps();
         });
     }

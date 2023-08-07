@@ -11,6 +11,7 @@ use App\Http\Controllers\ShowAll;
 use App\Http\Controllers\PrototypeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LevelGuesserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,12 +72,17 @@ Route::get('/prototype', [PrototypeController::class, 'index'])->name('prototype
 Route::post('/comments', [CommentController::class, 'storeComment'])->name('comments.store');
 Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies.store');
 
+// Level guesser
+Route::get('/level-guesser/{id}', [LevelGuesserController::class, 'show'])->name('level-guesser.show');
+Route::post('/level-guesser', [LevelGuesserController::class, 'store'])->name('level-guesser.store');
+
 Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
     Route::get('/send-newsletter', [NewsletterController::class, 'showNewsletterForm'])->name('newsletter.form');
     Route::post('/send-newsletter', [NewsletterController::class, 'sendNewsletter'])->name('newsletter.send');
     Route::get('/community/news/create', [CommunityNewsController::class, 'create'])->name('community.create');
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::get('/level-guesser/create', [LevelGuesserController::class, 'create'])->name('level-guesser.create');
 });
 
 Route::prefix('poll')->middleware(['auth', AdminMiddleware::class])->group(function() {
