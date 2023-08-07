@@ -19,6 +19,7 @@ class LevelGuesserController extends Controller
             'level' => 'required|string',
             'alt1' => 'nullable|string',
             'alt2' => 'nullable|string',
+            'alt3' => 'nullable|string',
             'difficulty' => 'required|int',
             'filename' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -38,7 +39,7 @@ class LevelGuesserController extends Controller
 
         $level = LevelGuesser::create($validatedData);
 
-        // return redirect()->route('level-guesser.levelguesser');
+        return redirect()->back();
     }
 
     public function show($id)

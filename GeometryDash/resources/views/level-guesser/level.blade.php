@@ -35,7 +35,8 @@
                                 <button class="disabled"
                                     style="width:27%; border-color: rgba(0,0,0,0); background-color:rgb(0,220,0); color:rgb(0,0,0);"
                                     onclick="submitCheckAnswer()">Submit</button>
-                                <button style="width:27%; border-color: rgba(0,0,0,0); background-color:rgb(255,0,0); color:rgb(0,0,0);"
+                                <button
+                                    style="width:27%; border-color: rgba(0,0,0,0); background-color:rgb(255,0,0); color:rgb(0,0,0);"
                                     onclick="giveUp()" class="disabled">Skip</button>
                         </form>
                     </div>
@@ -47,9 +48,20 @@
                     <p style="display: none; color: rgb(255,100,100)" id="levelwasPHP"> @{{ levelWasContent }} </p>
                     </p>
                     <p style="display: inline; color: green;" id="levelcorrect"></p>
+                    @php
+                    $min_id = DB::table('levels')->min('lid');
+                    $max_id = DB::table('levels')->max('lid');
+                    $random_id = random_int($min_id, $max_id);
+                @endphp
                     <button id="myButton"
-                        style="display: none; margin-left: auto; margin-right: auto; width: 30%; border-radius: 1rem; border-color: rgba(0,0,0,0);"
-                        onclick="window.location.reload();">Next</button>
+        style="display: none; margin-left: auto; margin-right: auto; width: 30%; border-radius: 1rem; border-color: rgba(0,0,0,0);"
+        onclick="window.location.href = '/level-guesser/{{ $random_id }}';">Next</button>
+
+<script>
+document.getElementById("myButton").addEventListener("click", function() {
+  window.location.href = '/level-guesser/{{ $random_id }}';
+});
+</script>
                 </div>
                 <br>
             </div>
@@ -89,17 +101,25 @@
         }, 1000);
 
         function submitCheckAnswer() {
-            //laravel code: if text box text is equal to LevelName OR alt1 OR alt2, run the following js code:
-            document.getElementById("myButton").style.display = "block";
-            document.getElementById("levelcorrect").textContent = "That was correct!";
+            // Get the text from the input field
+            var answer = document.getElementById("fileToUpload").value;
 
-            clearInterval(downloadTimer);
-
-            preventDefault();
-
-
-            //ELSE, run this js code: timeleft = 1;
-
+            // Check if the answer is correct
+            if (answer === "{{ $level->level }}" ||
+                answer === "{{ $level->alt1 }}" ||
+                answer === "{{ $level->alt2 }}" ||
+                answer === "{{ $level->alt3 }}"
+                ) {
+                // The answer is correct
+                document.getElementById("levelcorrect").textContent = "That was correct!";
+                timeleft = 1;
+                // clearInterval(downloadTimer);
+            } else {
+                // The answer is incorrect
+                document.getElementById("levelcorrect").textContent = "Your guess was incorrect!";
+                document.getElementById("levelcorrect").style.color = "red";
+                timeleft = 1;
+            }
         }
 
         function giveUp() {

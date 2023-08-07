@@ -7,7 +7,6 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CommunityNewsController;
-use App\Http\Controllers\ShowAll;
 use App\Http\Controllers\PrototypeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\CommentController;
@@ -24,12 +23,24 @@ use App\Http\Controllers\LevelGuesserController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('pages.index');
 
-// Newsletter
-Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::middleware([AdminMiddleware::class])->group(function () {
+    Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::get('/level-guesser/create', [LevelGuesserController::class, 'create'])->name('level-guesser.create');
+    Route::get('/send-newsletter', [NewsletterController::class, 'showNewsletterForm'])->name('newsletter.form');
+    Route::post('/send-newsletter', [NewsletterController::class, 'sendNewsletter'])->name('newsletter.send');
+    Route::get('/community/news/create', [CommunityNewsController::class, 'create'])->name('community.create');
+});
+
+Route::prefix('poll')->middleware(['auth', AdminMiddleware::class])->group(function() {
+    Route::view('create', 'polls.create')->name('poll.create');
+    Route::post('create', [PollController::class, 'store'])->name('poll.store');
+    Route::get('/update/{poll}', [PollController::class,'edit'])->name('poll.edit');
+    Route::put('/update/{poll}', [PollController::class,'update'])->name('poll.update');
+    Route::get('delete/{poll}',[PollController::class,'delete'])->name('poll.delete');
+});
+
 
 
 Route::get('/dashboard', function () {
@@ -45,6 +56,13 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::get('/send-newsletter', [NewsletterController::class, 'showNewsletterForm'])->name('newsletter.form');
 Route::post('/send-newsletter', [NewsletterController::class, 'sendNewsletter'])->name('newsletter.send');
+
+Route::get('/', function () {
+    return view('pages.index');
+})->name('pages.index');
+
+// Newsletter
+Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 // Polls
 Route::get('/poll', [PollController::class,'index'])->name('poll.index');
@@ -65,9 +83,6 @@ Route::get('/post/{id}', [PostsController::class, 'show'])->name('post.show');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/community/news/{id}', [CommunityNewsController::class, 'show'])->name('community.show');
 
-//
-Route::get('/prototype', [PrototypeController::class, 'index'])->name('prototype.index');
-
 // Comments
 Route::post('/comments', [CommentController::class, 'storeComment'])->name('comments.store');
 Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies.store');
@@ -75,20 +90,3 @@ Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies
 // Level guesser
 Route::get('/level-guesser/{id}', [LevelGuesserController::class, 'show'])->name('level-guesser.show');
 Route::post('/level-guesser', [LevelGuesserController::class, 'store'])->name('level-guesser.store');
-
-Route::middleware([AdminMiddleware::class])->group(function () {
-    Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
-    Route::get('/send-newsletter', [NewsletterController::class, 'showNewsletterForm'])->name('newsletter.form');
-    Route::post('/send-newsletter', [NewsletterController::class, 'sendNewsletter'])->name('newsletter.send');
-    Route::get('/community/news/create', [CommunityNewsController::class, 'create'])->name('community.create');
-    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
-    Route::get('/level-guesser/create', [LevelGuesserController::class, 'create'])->name('level-guesser.create');
-});
-
-Route::prefix('poll')->middleware(['auth', AdminMiddleware::class])->group(function() {
-    Route::view('create', 'polls.create')->name('poll.create');
-    Route::post('create', [PollController::class, 'store'])->name('poll.store');
-    Route::get('/update/{poll}', [PollController::class,'edit'])->name('poll.edit');
-    Route::put('/update/{poll}', [PollController::class,'update'])->name('poll.update');
-    Route::get('delete/{poll}',[PollController::class,'delete'])->name('poll.delete');
-});

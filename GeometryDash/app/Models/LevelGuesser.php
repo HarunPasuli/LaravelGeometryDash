@@ -14,6 +14,7 @@ class LevelGuesser extends Model
         'level',
         'alt1',
         'alt2',
+        'alt3',
         'difficulty',
         'filename',
     ];

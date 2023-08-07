@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('level');
             $table->string('alt1')->nullable();
             $table->string('alt2')->nullable();
+            $table->string('alt3')->nullable();
             $table->integer('difficulty');
             $table->string('filename');
             $table->timestamps();
