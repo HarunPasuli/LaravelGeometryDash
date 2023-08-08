@@ -2,13 +2,82 @@
 
 @section('title',$post->title)
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+body{
+    border-color: rgba(0,0,0,0);
+}
+
+
+.lackBorder{
+    background-color:rgb(51,50,50);
+    border-color: rgba(0,0,0,0);
+    border-radius: 1rem;
+}
+   /* Style for the main comment section */
+    ul.comment-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul.comment-list li {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    ul.comment-list li p {
+        margin: 0;
+    }
+
+    ul.comment-list li small {
+        color: #777;
+    }
+
+    /* Style for reply form */
+    ul.comment-list li form {
+        margin-top: 10px;
+    }
+
+    ul.comment-list li form textarea {
+        width: 100%;
+        padding: 5px;
+    }
+
+    ul.comment-list li form button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    /* Style for reply list */
+    ul.comment-list li ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    ul.comment-list li ul li {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    ul.comment-list li ul li small {
+        color: #777;
+    }
+
+</style>
 @section('content')
 <link rel="stylesheet" href="{{ asset('asset/css/post-page-news.css') }}">
-<div class="container">
-    <div class="post">
-        <h2 class="post-title">{{ $post->title }}</h2>
-        <img src="{{ asset($post->image) }}" alt="Post Image" class="post-image">
-        <div class="post-description">
+<div id="divid" style="width: 100%; background-color: black; padding: 30px;">
+<div class="container lackBorder">
+
+    <div class="" style="width: 60%; display: inline;">
+        <h2 class="post-title" style="color: white; font-weight:bold; text-align: center;">{{ $post->title }}</h2>
+        <img src="{{ asset($post->image) }}" alt="Post Image" class="post-image" style="margin-left: auto; margin-right: auto; display: block;">
+        <div class="post-description" style="color: white;">
             <p>{{ $post->description }}</p>
         </div>
         <div class="post-meta">
@@ -17,43 +86,60 @@
             <p class="post-views">Views: {{ $post->views }}</p>
         </div>
     </div>
-</div>
-
-<div class="comment-section">
-    <h3>Comments</h3>
+<hr style="color: white;">
+    <div class="comment-section" style="width: 30%; display: inline;">
+    <h3 style="color: white; text-align: center;">Comments</h3>
     <form action="{{ route('comments.store') }}" method="POST">
         @csrf
         <input type="hidden" name="post_id" value="{{ $post->id }}">
-        <textarea name="content" placeholder="Write your comment here"></textarea>
-        <button type="submit">Post Comment</button>
+        <textarea name="content" placeholder="Write your comment here" style="resize: none; width: 100%; background-color: rgba(0,0,255,0.2); color: white; border-radius: 1rem; padding: 10px;" rows="2"dfgdgeger></textarea>
+        <button type="submit" style="padding-top: 3px; padding-bottom: 3px; background-color: rgba(0,0,255);color:white; margin-top: 5px; border: none; border-radius: 1rem; padding-left: 10px; padding-right: 10px;">Post</button>
     </form>
 
     {{-- Check if there are comments --}}
     @if ($post->comments->count() > 0)
-        <ul>
+
+
             @foreach ($post->comments as $comment)
-                <li>
-                    <p>{{ $comment->content }}</p>
-                    <small>By {{ $comment->user->name }} on {{ $comment->created_at->format('F d, Y') }}</small>
+
+    <div style="background-color: rgb(31,30,30); color: white; border-radius: 1rem; padding: 10px;">
+
+
+                        <small style="color: gray;">By {{ $comment->user->name }} | {{ $comment->created_at->format('F d, Y') }}</small>
+                    <p style="color: white;">{{ $comment->content }}</p>
+
+
                     <form action="{{ route('replies.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="comment_id" value="{{ $comment->id }}">
-                        <textarea name="content" placeholder="Write your reply here"></textarea>
-                        <button type="submit">Post Reply</button>
+                        <textarea name="content" placeholder="Write your reply here" style="resize: none; width: 100%; background-color: rgba(0,0,100,0.1); color: white; border-radius: 1rem; padding: 10px;"></textarea>
+                        <button type="submit" style="padding-top: 3px; padding-bottom: 3px; background-color: rgba(0,0,100);color:white; margin-top: 5px; border: none; border-radius: 1rem; padding-left: 10px; padding-right: 10px;">Reply</button>
                     </form>
+                    <h4> Replies </h4>
                     <ul>
                         @foreach ($comment->replies as $reply)
                             <li>
-                                <p>{{ $reply->content }}</p>
-                                <small>By {{ $reply->user->name }} on {{ $reply->created_at->format('F d, Y') }}</small>
+                                <div style="background-color: rgb(21,20,20); color: white; border-radius: 1rem; padding: 10px;">
+    <small style="color: gray;">By {{ $reply->user->name }} | {{ $reply->created_at->format('F d, Y') }}</small>
+    <p style="white-space: normal; word-wrap: break-word;">{{ $reply->content }}</p>
+</div>
+<br>
                             </li>
                         @endforeach
+                        <p style="color: gray;"> There are no more replies </p>
+                    </div>
                     </ul>
                 </li>
+                <br>
             @endforeach
-        </ul>
+
     @else
         <p>No comments yet.</p>
     @endif
+
+</div>
+</div>
+</div>
+</div>
 </div>
 @endsection
