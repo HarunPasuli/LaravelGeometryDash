@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
+
+    public function index() {
+        $posts = Posts::all();
+        return view('pages.posts', compact('posts'));
+    }
+
     public function create()
     {
         return view('uploads.posts.create');

@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 class CommunityNewsController extends Controller
 {
 
+    public function index() {
+        $communityNews = CommunityNews::all();
+        return view('pages.communityNews',compact('communityNews'));
+    }
+
     public function create() {
         return view('news.create');
     }

@@ -64,6 +64,8 @@ Route::get('/', function () {
 
 // Pages
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/community/news', [CommunityController::class, 'index'])->name('community.news');
+Route::get('/posts',[PostsController::class, 'index'])->name('posts.index');
 
 // Newsletter
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
