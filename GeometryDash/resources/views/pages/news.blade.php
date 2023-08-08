@@ -2,14 +2,6 @@
 
 @section('title','index')
 
-@section('content')
-
-@endsection
-
-@extends('layouts.master')
-
-@section('title','index')
-
 
 @section('content')
 <!-- DONT CHANGE ANYTHING in the following div !-->

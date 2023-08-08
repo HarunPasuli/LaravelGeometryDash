@@ -9,6 +9,12 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+
+    public function index() {
+        $news = News::all();
+        return view('pages.news', compact('news'));
+    }
+
     public function create() {
         return view('uploads.news.create');
     }

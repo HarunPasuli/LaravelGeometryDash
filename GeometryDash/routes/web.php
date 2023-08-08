@@ -62,6 +62,9 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('pages.index');
 
+// Pages
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
 // Newsletter
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
