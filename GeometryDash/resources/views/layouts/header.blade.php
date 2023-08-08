@@ -1,3 +1,4 @@
+
 <div class="bg-black"
     style="width: 95%; border-color: black; margin-left:2.5%;margin-top: 30px; border-radius:1rem ;padding-top: 10px; padding-left: 30px; padding-right: 30px;">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
@@ -22,11 +23,11 @@
 
         <div class="col-md-3 text-end">
             @auth
-                <p style="color: white;">Hello, {{ Auth::user()->name }}</p>
-                <form method="POST" action="{{ route('logout') }}">
+                <p style="color: white; display: inline;">Logged in as: <a href="/profile" style="color: rgb(150,150,255)"> {{ Auth::user()->name }}</a> <form style="display: inline" method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="btn btn-link" style="color: white;">Logout</button>
-                </form>
+                    <button type="submit" class="btn btn-link" style="color: rgb(255,120,120);">Logout</button>
+                </form> </p>
+
             @else
                 <button type="button" class="btn btn-outline-primary me-2"
                     onclick="window.location.href='/login'">Login</button>

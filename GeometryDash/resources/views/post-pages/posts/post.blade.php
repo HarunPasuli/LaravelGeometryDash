@@ -1,3 +1,26 @@
+<script>
+function showReplies(button) {
+    var parentDiv = button.parentElement;
+    var repliesDiv = parentDiv.querySelector(".replies");
+    var showButton = parentDiv.querySelector(".show");
+    var hideButton = parentDiv.querySelector(".hide");
+    
+    repliesDiv.style.display = "block";
+    showButton.style.display = "none";
+    hideButton.style.display = "block";
+}
+
+function hideReplies(button) {
+    var parentDiv = button.parentElement;
+    var repliesDiv = parentDiv.querySelector(".replies");
+    var showButton = parentDiv.querySelector(".show");
+    var hideButton = parentDiv.querySelector(".hide");
+    
+    repliesDiv.style.display = "none";
+    showButton.style.display = "block";
+    hideButton.style.display = "none";
+}
+</script>
 @extends('layouts.master')
 
 @section('title',$post->title)
@@ -81,7 +104,7 @@ body{
             <p>{{ $post->description }}</p>
         </div>
         <div class="post-meta">
-            <p class="post-uploaded-at">Uploaded at: {{ \Carbon\Carbon::parse($post->uploaded_at)->format('F d, Y') }}</p>
+            <p class="post-uploaded-at">Uploaded date: {{ \Carbon\Carbon::parse($post->uploaded_at)->format('F d, Y') }}</p>
             <p class="post-author">Author: {{ $post->author }}</p>
             <p class="post-views">Views: {{ $post->views }}</p>
         </div>
@@ -115,6 +138,9 @@ body{
                         <textarea name="content" placeholder="Write your reply here" style="resize: none; width: 100%; background-color: rgba(0,0,100,0.1); color: white; border-radius: 1rem; padding: 10px;"></textarea>
                         <button type="submit" style="padding-top: 3px; padding-bottom: 3px; background-color: rgba(0,0,100);color:white; margin-top: 5px; border: none; border-radius: 1rem; padding-left: 10px; padding-right: 10px;">Reply</button>
                     </form>
+                    <button class="show" style="color: rgb(100,100,255); background-color: rgba(0,0,0,0); border: none;" onclick="showReplies(this)">Show Replies</button>
+<button class="hide" style="color: rgb(100,100,255); background-color: rgba(0,0,0,0); border: none; display: none;" onclick="hideReplies(this)">Hide Replies</button>
+                    <div class="replies" style="display: none;">
                     <h4> Replies </h4>
                     <ul>
                         @foreach ($comment->replies as $reply)
@@ -128,6 +154,7 @@ body{
                         @endforeach
                         <p style="color: gray;"> There are no more replies </p>
                     </div>
+</div>
                     </ul>
                 </li>
                 <br>
@@ -143,3 +170,4 @@ body{
 </div>
 </div>
 @endsection
+
