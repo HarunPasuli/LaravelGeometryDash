@@ -20,14 +20,15 @@ class NewsController extends Controller
     }
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'title' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'author' => 'required|string',
             'description' => 'required|string',
-            'sources' => 'array',
-            'sources.*.url' => 'url',
-            'sources.*.platform' => 'string',
+            'sources' => 'array|nullable',
+            'sources.*.url' => 'url|nullable',
+            'sources.*.platform' => 'string|nullable',
         ]);
 
         $uploadedAt = Carbon::now();

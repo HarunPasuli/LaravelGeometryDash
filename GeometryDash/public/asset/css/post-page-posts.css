@@ -1,0 +1,70 @@
+
+body {
+    border-color: rgba(0, 0, 0, 0);
+}
+
+
+.lackBorder {
+    background-color: rgb(51, 50, 50);
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 1rem;
+}
+
+/* Style for the main comment section */
+ul.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.comment-list li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+ul.comment-list li p {
+    margin: 0;
+}
+
+ul.comment-list li small {
+    color: #777;
+}
+
+/* Style for reply form */
+ul.comment-list li form {
+    margin-top: 10px;
+}
+
+ul.comment-list li form textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+ul.comment-list li form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Style for reply list */
+ul.comment-list li ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul.comment-list li ul li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+ul.comment-list li ul li small {
+    color: #777;
+}
+
+div {
+    word-wrap: break-word
+}

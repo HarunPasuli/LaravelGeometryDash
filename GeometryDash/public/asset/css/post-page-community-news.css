@@ -45,3 +45,7 @@ body {
 .post-meta .post-sources a {
     margin-right: 5px;
 }
+
+div {
+    word-wrap: break-word
+}
