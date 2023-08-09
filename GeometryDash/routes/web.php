@@ -90,7 +90,9 @@ Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/community/news/{id}', [CommunityNewsController::class, 'show'])->name('community.show');
 
 // Comments
+Route::middleware(['auth'])->group(function () {
 Route::post('/comments', [CommentController::class, 'storeComment'])->name('comments.store');
+});
 Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies.store');
 
 // Level guesser
