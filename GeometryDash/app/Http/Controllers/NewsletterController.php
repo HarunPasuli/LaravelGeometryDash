@@ -7,6 +7,7 @@ use App\Mail\NewSubscriberNotification;
 use App\Models\Subscriber;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsletterController extends Controller
 {
@@ -45,6 +46,7 @@ class NewsletterController extends Controller
         // Create a new subscriber
         $subscriber = new Subscriber();
         $subscriber->email = $request->email;
+        $subscriber->unsubscribe_token = Str::random(32); // Generate a random token
         $subscriber->save();
 
         // Send email notification to the subscriber
@@ -54,15 +56,15 @@ class NewsletterController extends Controller
         return redirect()->back()->with('subscribed', true);
     }
 
-    public function unsubscribe($email)
+    public function unsubscribe($email, $token)
     {
         $subscriber = Subscriber::where('email', $email)->first();
 
-        if ($subscriber) {
+        if ($subscriber && $subscriber->unsubscribe_token === $token) {
             $subscriber->delete(); // Delete the subscriber record
             return "You have been unsubscribed successfully.";
         }
 
-        return "Subscriber not found.";
+        return "Subscriber not found or invalid token.";
     }
 }
