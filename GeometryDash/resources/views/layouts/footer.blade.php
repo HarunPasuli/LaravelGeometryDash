@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <footer class="bg-dark text-center text-white">
     <div class="container p-4">
 
@@ -48,14 +49,7 @@
                     </div>
 
                 </div>
-                @if (session('success'))
-                    <div class="alert alert-success px-5 w-100">
-                        {{ session('success') }}
-                        <script>
-                            alert("Your email has been added to our list. Thank you so much for subscribing!");
-                            </script>
-                    </div>
-                @endif
+
             </form>
         </section>
 
@@ -66,7 +60,7 @@
                 We will only send the most important news to your email - we will try our best not to spam your inbox!
             </p>
             <p>
-This site is completely unofficial and has nothing to do with RobTopGames (the developer of Geometry Dash). If you wish to get this website taken down or to remove a certain part of it, please make sure to contact us via Twitter on: @GD_Network_ OR @thewallyhimself (i recomend this one for a faster response). Website developed and ran by ignWally (@thewallyhimself on twitter, @ignWally on discord) and DrSkillers (@dr.skillers on discord). Some assets on this site might have been taken from Geometry Dash. Geometry Dash font taken from <a href="https://gdcolon.com/gdfont">GD Font Generator</a> by GD Colon.
+This site is completely unofficial and has nothing to do with RobTopGames (the developer of Geometry Dash). If you wish to get this website taken down or to remove a certain part of it, please make sure to contact us via Twitter on: @GD_Network_ OR @thewallyhimself (I recommend this one for a faster response). Website developed and ran by ignWally (@thewallyhimself on twitter, @ignWally on discord) and DrSkillers (@dr.skillers on discord). Some assets on this site might have been taken from Geometry Dash. Geometry Dash font taken from <a href="https://gdcolon.com/gdfont">GD Font Generator</a> by GD Colon.
         </p>
         </section>
 
@@ -173,6 +167,28 @@ This site is completely unofficial and has nothing to do with RobTopGames (the d
 <script>
     function copyLink(){
     navigator.clipboard.writeText("Website Link");
-    alert("Website link copied to clipboard!");
+    Swal.fire({
+            icon: 'success',
+            title: 'Link Copied!',
+            text: 'Website link has been copied to your clipboard!',
+            timer: 3000
+    });
     }
+
+    @if(session('subscribed'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Subscribed!',
+            text: 'You have successfully subscribed to our newsletter!',
+            timer: 3000
+        });
+    @endif
+
+    @if ($errors->has('email'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ $errors->first('email') }}'
+        });
+    @endif
                 </script>

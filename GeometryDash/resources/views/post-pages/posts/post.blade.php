@@ -63,7 +63,7 @@
                                 <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                                 <textarea name="content" placeholder="Write your reply here"
                                     style="resize: none; width: 100%; background-color: rgba(0,0,100,0.1); color: white; border-radius: 1rem; padding: 10px;"></textarea>
-                                    @error('content')
+                                @error('reply_content_' . $comment->id) <!-- Handle errors for the reply form -->
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                                     <button type="submit"
