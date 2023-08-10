@@ -1,4 +1,3 @@
-
 <div class="bg-black"
     style="width: 95%; border-color: black; margin-left:2.5%;margin-top: 30px; border-radius:1rem ;padding-top: 10px; padding-left: 30px; padding-right: 30px;">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
@@ -12,9 +11,9 @@
             $max_id = DB::table('levels')->max('lid');
             $random_id = random_int($min_id, $max_id);
         @endphp
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" style="font-size: 19px; color: white;">
-            <li><a href="#" class="nav-link px-2" style="color:white;">Home</a></li>
-            <li><a href="#" class="nav-link px-2" style="color:white;">News</a></li>
+        <ul class="nav col-12 col-md-auto justify-content-center" style="font-size: 19px; color: white; text-align: center;">
+            <li><a href="/" class="nav-link px-2" style="color:white;">Home</a></li>
+            <li><a href="/news" class="nav-link px-2" style="color:white;">News</a></li>
             <li><a href="#" class="nav-link px-2k" style="color:white;">Community</a></li>
             <li><a href="#" class="nav-link px-2" style="color:white;">Threads</a></li>
             <li><a href="/level-guesser/{{ $random_id }}" class="nav-link px-2k" style="color:white;">Level
@@ -23,10 +22,10 @@
 
         <div class="col-md-3 text-end">
             @auth
-                <p style="color: white; display: inline;">Logged in as: <a href="/profile" style="color: rgb(150,150,255)"> {{ Auth::user()->name }}</a> <form style="display: inline" method="POST" action="{{ route('logout') }}">
-                    @csrf
+                <a style="color: white;">Logged in as: <a href="/profile" style="color: rgb(150,150,255)"> {{ Auth::user()->name }}</a> <form style="display: inline" method="POST" action="{{ route('logout') }}">
+                    @csrf 
                     <button type="submit" class="btn btn-link" style="color: rgb(255,120,120);">Logout</button>
-                </form> </p>
+                </form> </a>
 
             @else
                 <button type="button" class="btn btn-outline-primary me-2"

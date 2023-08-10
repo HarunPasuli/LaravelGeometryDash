@@ -3,26 +3,14 @@
 
         <section class="mb-4">
 
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-facebook-f"></i></a>
 
 
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+            <a class="btn btn-outline-light btn-floating m-1" href="https://x.com/GD_Network_" role="button"><i
                     class="fab fa-twitter"></i></a>
 
             <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-google"></i></a>
+                    class="fab fa-google" onclick="copyLink()"></i></a>
 
-
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-instagram"></i></a>
-
-
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-linkedin-in"></i></a>
-
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-github"></i></a>
         </section>
 
 
@@ -63,6 +51,9 @@
                 @if (session('success'))
                     <div class="alert alert-success px-5 w-100">
                         {{ session('success') }}
+                        <script>
+                            alert("Your email has been added to our list. Thank you so much for subscribing!");
+                            </script>
                     </div>
                 @endif
             </form>
@@ -71,11 +62,12 @@
 
 
         <section class="mb-4">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                eum harum corrupti dicta, aliquam sequi voluptate quas.
+            <p style="color: red">
+                We will only send the most important news to your email - we will try our best not to spam your inbox!
             </p>
+            <p>
+This site is completely unofficial and has nothing to do with RobTopGames (the developer of Geometry Dash). If you wish to get this website taken down or to remove a certain part of it, please make sure to contact us via Twitter on: @GD_Network_ OR @thewallyhimself (i recomend this one for a faster response). Website developed and ran by ignWally (@thewallyhimself on twitter, @ignWally on discord) and DrSkillers (@dr.skillers on discord). Some assets on this site might have been taken from Geometry Dash. Geometry Dash font taken from <a href="https://gdcolon.com/gdfont">GD Font Generator</a> by GD Colon.
+        </p>
         </section>
 
 
@@ -178,3 +170,9 @@
     </div>
 
 </footer>
+<script>
+    function copyLink(){
+    navigator.clipboard.writeText("Website Link");
+    alert("Website link copied to clipboard!");
+    }
+                </script>
