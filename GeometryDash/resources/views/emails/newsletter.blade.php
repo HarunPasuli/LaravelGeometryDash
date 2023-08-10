@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>{{ $title }}</h1>
-    <p>{{ $content }}</p>
+    <p>{!! $content !!}</p>
 
     <!-- Add any additional HTML content here as needed -->
 
