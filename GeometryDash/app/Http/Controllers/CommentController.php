@@ -38,10 +38,10 @@ class CommentController extends Controller
             'content' => 'required|max:500',
             'comment_id' => 'required|exists:comments,id',
         ],[
-            'content.required' => 'Comment content is required.',
-            'content.max' => 'Max characters allowed for a comment is 500.',
-            'post_id.required' => 'Post ID is required.',
-            'post_id.exists' => 'The selected post does not exist.',
+            'content.required' => 'Reply content is required.',
+            'content.max' => 'Max characters allowed for a reply is 500.',
+            'comment_id.required' => 'Comment ID is required.',
+            'comment_id.exists' => 'The selected comment does not exist.',
         ]);
 
         $reply = new CommentReply();
