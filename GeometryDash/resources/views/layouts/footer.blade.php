@@ -84,16 +84,16 @@ This site is completely unofficial and has nothing to do with <a href="https://w
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" class="text-white">News</a>
+                            <a href="/news" class="text-white">News</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Community News</a>
+                            <a href="/community/news" class="text-white">Community News</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Posts</a>
+                            <a href="/posts" class="text-white">Posts</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Level Guesser</a>
+                            <a href="/level-guesser/1" class="text-white">Level Guesser</a>
                         </li>
                     </ul>
                 </div>

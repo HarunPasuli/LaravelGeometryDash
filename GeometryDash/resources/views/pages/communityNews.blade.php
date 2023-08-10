@@ -4,7 +4,7 @@
 
 @section('content')
 <div style="width: 100%; margin-top: 50px; background-color: rgb(31, 30, 30);">
-    <img src="{{ asset('asset/images/news.png') }}" style="margin-left: auto; margin-right: auto; display: block; width: 20%;">
+    <img src="{{ asset('asset/images/logo (12).png') }}" style="margin-left: auto; margin-right: auto; display: block; width: 50%;">
 </div>
 
 <div style="width: 100%; background-color: rgb(51, 50, 50); display: flex; flex-wrap: wrap; padding-top: 30px;">

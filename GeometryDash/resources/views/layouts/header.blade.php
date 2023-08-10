@@ -22,7 +22,7 @@
             <li><a href="/" class="nav-link px-2" style="color:white;">Home</a></li>
             <li><a href="/news" class="nav-link px-2" style="color:white;">News</a></li>
             <li><a href="/community/news" class="nav-link px-2k" style="color:white;">Community</a></li>
-            <li><a href="#" class="nav-link px-2" style="color:white;">Posts</a></li>
+            <li><a href="/posts" class="nav-link px-2" style="color:white;">Posts</a></li>
             <li><a href="/level-guesser/{{ $random_id }}" class="nav-link px-2k" style="color:white;">Level
                     Guessing</a></li>
         </ul>

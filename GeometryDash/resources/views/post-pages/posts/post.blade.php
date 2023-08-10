@@ -1,10 +1,13 @@
 @extends('layouts.master')
+
+@section('title', $post->title)
+
+@section('content')
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="{{ asset('asset/js/post-page-post.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('asset/css/post-page-posts.css') }}">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@section('title', $post->title)
-<meta name="csrf-token" content="{{ csrf_token() }}">
-@section('content')
     <link rel="stylesheet" href="{{ asset('asset/css/post-page-news.css') }}">
     <div id="divid" style="width: 100%; background-color: black; padding: 30px;">
         <div class="container lackBorder">
@@ -99,7 +102,7 @@
                         <br>
                     @endforeach
                 @else
-                    <p>No comments yet.</p>
+                    <p style="color: gray;">No comments yet.</p>
                 @endif
 
             </div>

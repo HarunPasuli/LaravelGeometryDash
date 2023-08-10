@@ -30,7 +30,7 @@
          <a href="{{ route('news.show', ['id' => $post->id]) }}" style="text-decoration:none">
             <div id="big" class="article-container p-4" >
 
-                  <div class="p-3" style="background-color: black; border-radius: 1rem;height: 400px;overflow-y: scroll;">
+                  <div class="p-3" style="background-color: black; border-radius: 1rem 0rem 0rem 1rem;height: 400px;overflow-y: scroll;">
                     <b style="font-size: 23px; color: rgb(121, 120, 120);">{{ $post->author }}</b>
                     <b style="font-size: 18px; color: rgb(91, 90, 90);"> -
                         {{ \Carbon\Carbon::parse($post->uploaded_at)->format('F d, Y g:i A') }}
