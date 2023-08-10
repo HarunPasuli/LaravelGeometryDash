@@ -16,7 +16,7 @@ class CommunityNewsController extends Controller
     }
 
     public function create() {
-        return view('news.create');
+        return view('uploads.communityNews.create');
     }
     public function store(Request $request)
     {
