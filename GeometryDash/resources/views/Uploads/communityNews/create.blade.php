@@ -29,8 +29,9 @@
                 <input type="text" name="author" id="author" class="form-control" required>
             </div>
             <div class="form-group" id="sources-group">
-                <label for="sources">Sources (Discord Message Link)</label>
-                <input type="text" name="sources[]" class="form-control" style="margin-top: 1rem" placeholder="Enter a link">
+                <label for="sources">Sources (URL and Platform)</label>
+                <input type="text" name="sources['source-0'][url]" class="form-control" style="margin-top: 1rem" placeholder="Enter a link">
+                <input type="text" name="sources['source-0'][platform]" class="form-control" style="margin-top: 1rem" placeholder="Enter platform name">
             </div>
             <button type="button" id="add-more-btn" class="btn btn-primary">Add More</button>
             <button type="submit" class="btn btn-primary">Create Post</button>
@@ -40,15 +41,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    // Handle the "Add More" button click event
-    $("#add-more-btn").click(function() {
-        // Clone the input field and add it to the sources-group div
-        var clonedInput = $('<input type="text" name="sources[]" class="form-control" style="margin-top: 1rem" placeholder="Enter another link">');
-        $("#sources-group").append(clonedInput);
-    });
-});
-</script>
+    $(document).ready(function() {
+        var sourceCounter = 1;
 
+        $("#add-more-btn").click(function() {
+            var uniqueId = "source-" + sourceCounter;
+            sourceCounter++;
+            var clonedInputUrl = $('<input type="text" name="sources[' + uniqueId + '][url]" class="form-control" style="margin-top: 1rem" placeholder="Enter another link">');
+            var clonedInputPlatform = $('<input type="text" name="sources[' + uniqueId + '][platform]" class="form-control" style="margin-top: 1rem" placeholder="Enter platform name">');
+            $("#sources-group").append(clonedInputUrl);
+            $("#sources-group").append(clonedInputPlatform);
+        });
+    });
+
+    </script>
 </body>
 </html>
