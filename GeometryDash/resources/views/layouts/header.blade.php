@@ -21,8 +21,8 @@
         <ul class="nav col-md-auto justify-content-center" style="font-size: 19px; color: white; text-align: center;">
             <li><a href="/" class="nav-link px-2" style="color:white;">Home</a></li>
             <li><a href="/news" class="nav-link px-2" style="color:white;">News</a></li>
-            <li><a href="#" class="nav-link px-2k" style="color:white;">Community</a></li>
-            <li><a href="#" class="nav-link px-2" style="color:white;">Threads</a></li>
+            <li><a href="/community/news" class="nav-link px-2k" style="color:white;">Community</a></li>
+            <li><a href="#" class="nav-link px-2" style="color:white;">Posts</a></li>
             <li><a href="/level-guesser/{{ $random_id }}" class="nav-link px-2k" style="color:white;">Level
                     Guessing</a></li>
         </ul>

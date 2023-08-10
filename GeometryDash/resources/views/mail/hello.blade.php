@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Subscriber Notification</title>
+    <title>Succesfully subscribed to GDNetwork</title>
 </head>
 <body>
-    <h1>New Subscriber Notification</h1>
-    <p>You've been successfully subscribed to Harun Games newsletter.</p>
+    <h1>Thank you so much for subscribing to our newsletter!</h1>
+    <p>If you wish to unsubscribe, <a href="https://bigman.com">click here!</a></p>
     <p>Email: {{ $subscriber->email }}</p>
     <p>Thank you for subscribing!</p>
 </body>
