@@ -38,6 +38,8 @@ class NewsletterController extends Controller
         // Validate the form input
         $request->validate([
             'email' => 'required|email|unique:subscribers,email',
+        ], [
+            'email.unique' => 'This email address is already subscribed.',
         ]);
 
         // Create a new subscriber
@@ -49,6 +51,6 @@ class NewsletterController extends Controller
         Mail::to($subscriber->email)->send(new NewSubscriberNotification($subscriber));
 
         // Redirect back with success message
-        return redirect()->back()->with('success', 'Thanks for subscribing!');
+        return redirect()->back()->with('subscribed', true);
     }
 }

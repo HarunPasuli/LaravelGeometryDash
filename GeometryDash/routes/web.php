@@ -41,7 +41,9 @@ Route::prefix('poll')->middleware(['auth', AdminMiddleware::class])->group(funct
     Route::get('delete/{poll}',[PollController::class,'delete'])->name('poll.delete');
 });
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/level-guesser/{id}', [LevelGuesserController::class, 'show'])->name('level-guesser.show');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -64,7 +66,7 @@ Route::get('/', function () {
 
 // Pages
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-Route::get('/community/news', [CommunityController::class, 'index'])->name('community.news');
+Route::get('/community/news', [CommunityNewsController::class, 'index'])->name('community.news');
 Route::get('/posts',[PostsController::class, 'index'])->name('posts.index');
 
 // Newsletter
@@ -96,5 +98,5 @@ Route::post('/comments', [CommentController::class, 'storeComment'])->name('comm
 Route::post('/replies', [CommentController::class, 'storeReply'])->name('replies.store');
 
 // Level guesser
-Route::get('/level-guesser/{id}', [LevelGuesserController::class, 'show'])->name('level-guesser.show');
+
 Route::post('/level-guesser', [LevelGuesserController::class, 'store'])->name('level-guesser.store');
