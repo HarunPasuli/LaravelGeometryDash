@@ -12,11 +12,11 @@
             <p>{{ $post->description }}</p>
         </div>
         <div class="post-meta">
-            <p class="post-uploaded-at">Uploaded at: {{ $post->uploaded_at->format('F d, Y') }}</p>
+            <p class="post-uploaded-at">Uploaded at:         {{ \Carbon\Carbon::parse($post->uploaded_at)->format('F d, Y g:i A') }}</p>
             <p class="post-author">Author: {{ $post->author }}</p>
             <p class="post-sources">Sources:
                 @foreach ($post->sources as $source)
-                    <a href="{{ $source }}" target="_blank">{{ $source }}</a>,
+                <a href="{{ $source['url'] }}">{{ $source['platform'] }}</a>
                 @endforeach
             </p>
             <p class="post-views">Views: {{ $post->views }}</p>

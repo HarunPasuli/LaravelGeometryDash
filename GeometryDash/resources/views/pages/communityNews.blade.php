@@ -24,7 +24,7 @@
                 <b style="font-size: 23px; color: white;">{{ $post->title }}</b>
                 <a href="{{ route('community.show', ['id' => $post->id]) }}">
 
-                    <img src="{{ $post->image }}" style="width: 50%; display: block; border-radius: 1rem; margin-left: auto; margin-right: auto;">
+                    <img src="{{ asset($post->image) }}" style="width: 50%; display: block; border-radius: 1rem; margin-left: auto; margin-right: auto;">
                 </a>
 
                 <p style="font-size: 18px; color: rgb(121, 120, 120);">{{ \Illuminate\Support\Str::limit($post->description, $limit = 50, $end = '...') }}</p>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        @if ($index % 2 != 0 || $index == count($news) - 1)
+        @if ($index % 2 != 0 || $index == count($communityNews) - 1)
         </div>
         @endif
     @endforeach

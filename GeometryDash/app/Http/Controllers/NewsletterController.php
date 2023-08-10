@@ -53,4 +53,16 @@ class NewsletterController extends Controller
         // Redirect back with success message
         return redirect()->back()->with('subscribed', true);
     }
+
+    public function unsubscribe($email)
+    {
+        $subscriber = Subscriber::where('email', $email)->first();
+
+        if ($subscriber) {
+            $subscriber->delete(); // Delete the subscriber record
+            return "You have been unsubscribed successfully.";
+        }
+
+        return "Subscriber not found.";
+    }
 }

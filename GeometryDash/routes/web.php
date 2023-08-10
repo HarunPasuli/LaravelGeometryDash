@@ -71,6 +71,7 @@ Route::get('/posts',[PostsController::class, 'index'])->name('posts.index');
 
 // Newsletter
 Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/unsubscribe/{email}', [NewsletterController::class, 'unsubscribe'])->name('unsubscribe');
 
 // Polls
 Route::get('/poll', [PollController::class,'index'])->name('poll.index');
