@@ -62,7 +62,6 @@ class NewsletterController extends Controller
 
         if ($subscriber && $subscriber->unsubscribe_token === $token) {
             $subscriber->delete(); // Delete the subscriber record
-            $echo "<script>alert('You have succesfully unsubscribed from our newsletter')";
             return "You have been unsubscribed successfully.";
         }
 
