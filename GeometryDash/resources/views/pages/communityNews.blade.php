@@ -22,7 +22,7 @@
                 </b>
                 <hr>
                 <b style="font-size: 23px; color: white;">{{ $post->title }}</b>
-                <a href="{{ route('news.show', ['id' => $post->id]) }}">
+                <a href="{{ route('community.show', ['id' => $post->id]) }}">
 
                     <img src="{{ $post->image }}" style="width: 50%; display: block; border-radius: 1rem; margin-left: auto; margin-right: auto;">
                 </a>
