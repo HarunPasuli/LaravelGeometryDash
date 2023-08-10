@@ -60,7 +60,7 @@
                 We will only send the most important news to your email - we will try our best not to spam your inbox!
             </p>
             <p>
-This site is completely unofficial and has nothing to do with RobTopGames (the developer of Geometry Dash). If you wish to get this website taken down or to remove a certain part of it, please make sure to contact us via Twitter on: @GD_Network_ OR @thewallyhimself (I recommend this one for a faster response). Website developed and ran by ignWally (@thewallyhimself on twitter, @ignWally on discord) and DrSkillers (@dr.skillers on discord). Some assets on this site might have been taken from Geometry Dash. Geometry Dash font taken from <a href="https://gdcolon.com/gdfont">GD Font Generator</a> by GD Colon.
+This site is completely unofficial and has nothing to do with <a href="https://www.x.com/RobTopGames">RobTopGames</a> (the developer of Geometry Dash). If you wish to get this website taken down or to remove a certain part of it, please make sure to contact us via Twitter on: <a href="https://www.x.com/GD_Network_">@GD_Network_</a> OR <a href="https://www.x.com/thewallyhimself">@thewallyhimself.</a> Website developed and ran by ignWally (<a href="https://www.x.com/thewallyhimself">@thewallyhimself</a> on twitter, @ignWally on discord) and DrSkillers (@dr.skillers on discord, <a href="https://github.com/DrSkillers">DrSkillers</a> on GitHub). Some assets on this site might have been taken from Geometry Dash. Geometry Dash Font from <a href="https://gdcolon.com/gdfont">GD Font Generator</a> by <a href="https://www.x.com/@TheRealGDColon">GD Colon.</a>
         </p>
         </section>
 
@@ -70,20 +70,30 @@ This site is completely unofficial and has nothing to do with RobTopGames (the d
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
+
+
+                    <ul class="list-unstyled mb-0">
+
+                    </ul>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Website Navigation</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" class="text-white">Link 1</a>
+                            <a href="#!" class="text-white">News</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 2</a>
+                            <a href="#!" class="text-white">Community News</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 3</a>
+                            <a href="#!" class="text-white">Posts</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 4</a>
+                            <a href="#!" class="text-white">Level Guesser</a>
                         </li>
                     </ul>
                 </div>
@@ -91,20 +101,20 @@ This site is completely unofficial and has nothing to do with RobTopGames (the d
 
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
+                    <h5 class="text-uppercase">Socials</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" class="text-white">Link 1</a>
+                            <a href="https://www.x.com/GD_Network_" class="text-white">GD Network Twitter</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 2</a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=geometrydashnetworkofficial@gmail.com" class="text-white">Email Support</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 3</a>
+                            <a href="https://www.x.com/thewallyhimself" class="text-white">ignWally's Twitter</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-white">Link 4</a>
+                            <a href="https://github.com/DrSkillers" class="text-white">DrSkillers'is GitHub</a>
                         </li>
                     </ul>
                 </div>
@@ -112,42 +122,10 @@ This site is completely unofficial and has nothing to do with RobTopGames (the d
 
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
+
 
                     <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
 
-
-
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
                     </ul>
                 </div>
 
@@ -158,10 +136,7 @@ This site is completely unofficial and has nothing to do with RobTopGames (the d
 
 
 
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        &copy; {{ date('Y') }} Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
+
 
 </footer>
 <script>
